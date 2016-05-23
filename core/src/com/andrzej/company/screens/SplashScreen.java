@@ -2,6 +2,7 @@ package com.andrzej.company.screens;
 
 import com.andrzej.company.TutorialClickerClass;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.utils.Timer;
 
 /**
  * Created by Andrzej on 2016-05-23.
@@ -10,9 +11,16 @@ public class SplashScreen extends AbstractScreen {
 
     private Texture splashImg;
 
-    public SplashScreen(TutorialClickerClass game) {
+    public SplashScreen(final TutorialClickerClass game) {
         super(game);
         init();
+
+        Timer.schedule(new Timer.Task() {
+            @Override
+            public void run() {
+              game.setScreen(new GameplayScreen(game));
+            }
+        }, 3);
     }
 
     private void init() {
