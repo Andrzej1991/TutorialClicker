@@ -35,11 +35,12 @@ public class GameplayScreen extends AbstractScreen {
 
         stage.addActor(playerButton);
 
-        playerButton.addListener(new ClickListener(){
+        playerButton.addListener(new ClickListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 
-player.reactOnClick();
+                player.reactOnClick();
+                game.addPoint();
                 return super.touchDown(event, x, y, pointer, button);
             }
         });
@@ -55,6 +56,8 @@ player.reactOnClick();
     public void render(float delta) {
         super.render(delta);
         update();
+
+        
         spriteBatch.begin();
         stage.draw();
         spriteBatch.end();

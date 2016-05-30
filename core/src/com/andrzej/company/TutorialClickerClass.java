@@ -8,7 +8,14 @@ public class TutorialClickerClass extends Game {
 	public final static  int WIDTH = 480;
 	public final static int HEIGHT = 700;
 
+	public int getPoints() {
+		return points;
+	}
+	public void addPoint(){
+		points++;
+	}
 
+	private int points;
 
 	private boolean paused;
 
