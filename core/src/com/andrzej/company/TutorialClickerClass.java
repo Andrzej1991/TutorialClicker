@@ -19,8 +19,7 @@ public class TutorialClickerClass extends Game {
 	}
 	public void addPoint(){
 		points++;
-		preferences.putInteger(GAME_SCORE, points);
-		preferences.flush();
+		updateGamedSavedScore();
 	}
 	@Override
 	public void create () {
@@ -45,5 +44,15 @@ public class TutorialClickerClass extends Game {
 	}
 	public void setPaused(boolean paused) {
 		this.paused = paused;
+	}
+
+	public void resetGameScore() {
+		points = 0;
+		updateGamedSavedScore();
+	}
+
+	private void updateGamedSavedScore() {
+		preferences.putInteger(GAME_SCORE, points);
+		preferences.flush();
 	}
 }
