@@ -13,7 +13,6 @@ public class SplashScreen extends AbstractScreen {
 
     public SplashScreen(final TutorialClickerClass game) {
         super(game);
-        init();
 
         Timer.schedule(new Timer.Task() {
             @Override
@@ -23,7 +22,8 @@ public class SplashScreen extends AbstractScreen {
         }, 3);
     }
 
-    private void init() {
+    @Override
+    protected void init() {
         //TODO implement better assets loading when game grows
         splashImg = new Texture("badlogic.jpg");
     }
