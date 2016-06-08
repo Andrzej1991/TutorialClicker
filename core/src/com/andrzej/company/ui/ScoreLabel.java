@@ -1,5 +1,6 @@
 package com.andrzej.company.ui;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 
@@ -13,7 +14,8 @@ public class ScoreLabel extends Label {
         init();
     }
     private void init(){
-        this.setX(20);
+        this.setX(120);
+        this.setColor(Color.BLACK);
         this.setY(650);
     }
     private static LabelStyle prepareLabelStyle(){
