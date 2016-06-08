@@ -5,14 +5,13 @@ import com.andrzej.company.entities.Player;
 import com.andrzej.company.ui.IClickCallback;
 import com.andrzej.company.ui.PlayerButton;
 import com.andrzej.company.ui.ResetScoreButton;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.andrzej.company.ui.ScoreLabel;
 
 public class GameplayScreen extends AbstractScreen {
     private Player player;
     private PlayerButton playerButton;
     private ResetScoreButton resetScoreButton;
-    private Label scoreLabel;
+    private ScoreLabel scoreLabel;
 
     public GameplayScreen(TutorialClickerClass game) {
         super(game);
@@ -38,11 +37,8 @@ public class GameplayScreen extends AbstractScreen {
  }
 
     private void initScoreLabel() {
-        Label.LabelStyle labelStyle = new Label.LabelStyle();
-        labelStyle.font = new BitmapFont();
-        scoreLabel = new Label("", labelStyle);
-        scoreLabel.setX(20);
-        scoreLabel.setY(650);
+        scoreLabel = new ScoreLabel();
+
         stage.addActor(scoreLabel);
     }
 
