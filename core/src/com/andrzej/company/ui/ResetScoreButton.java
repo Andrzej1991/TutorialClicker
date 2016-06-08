@@ -1,16 +1,21 @@
 package com.andrzej.company.ui;
 
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+
+
 
 /**
  * Created by Andrzej on 2016-06-08.
  */
 public class ResetScoreButton extends Button {
     public ResetScoreButton(final IClickCallback callback){
-        super(new ButtonStyle());
+        super(prepareResetButtonStyle());
 
         init(callback);
 
@@ -21,9 +26,9 @@ public class ResetScoreButton extends Button {
         this.setHeight(100);
         this.setX(330);
         this.setY(560);
-        this.setDebug(true);
 
-        this.addListener(new ClickListener(){
+
+        this.addListener(new ClickListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 callback.onClick();
@@ -34,5 +39,13 @@ public class ResetScoreButton extends Button {
         });
 
         }
+    private static ButtonStyle prepareResetButtonStyle(){
+        TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("ui-red.atlas"));
+        Skin skin = new Skin(atlas);
+        Button.ButtonStyle buttonStyle = new Button.ButtonStyle();
+        buttonStyle.up = skin.getDrawable("button_01");
+        buttonStyle.down = skin.getDrawable("button_02");
+        return buttonStyle;
+    }
 
 }
