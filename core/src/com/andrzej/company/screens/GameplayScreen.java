@@ -12,11 +12,9 @@ public class GameplayScreen extends AbstractScreen {
     private PlayerButton playerButton;
     private ResetScoreButton resetScoreButton;
     private ScoreLabel scoreLabel;
-
     public GameplayScreen(TutorialClickerClass game) {
         super(game);
     }
-
     @Override
     protected void init() {
         initPlayer();
@@ -24,7 +22,6 @@ public class GameplayScreen extends AbstractScreen {
         initScoreLabel();
         initResetScoreButton();
     }
-
     private void initResetScoreButton() {
         resetScoreButton = new ResetScoreButton(new IClickCallback() {
             @Override
@@ -35,7 +32,6 @@ public class GameplayScreen extends AbstractScreen {
 
         stage.addActor(resetScoreButton);
  }
-
     private void initScoreLabel() {
         scoreLabel = new ScoreLabel();
 
