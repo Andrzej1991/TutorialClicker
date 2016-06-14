@@ -7,9 +7,10 @@ import com.andrzej.company.ui.PlayerButton;
 import com.andrzej.company.ui.ResetScoreButton;
 import com.andrzej.company.ui.ScoreLabel;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
 public class GameplayScreen extends AbstractScreen {
-    private Texture bgTexture;
+    private Image bgImage;
     private Player player;
     private PlayerButton playerButton;
     private ResetScoreButton resetScoreButton;
@@ -19,12 +20,19 @@ public class GameplayScreen extends AbstractScreen {
     }
     @Override
     protected void init() {
-        bgTexture = new Texture("bg.png");
+
+        initBg();
         initPlayer();
         initPlayerButton();
         initScoreLabel();
         initResetScoreButton();
     }
+
+    private void initBg() {
+        bgImage = new Image(new Texture("bg.png"));
+        stage.addActor(bgImage);
+    }
+
     private void initResetScoreButton() {
         resetScoreButton = new ResetScoreButton(new IClickCallback() {
             @Override
@@ -62,9 +70,7 @@ public class GameplayScreen extends AbstractScreen {
         super.render(delta);
         update();
 
-        spriteBatch.begin();
-        spriteBatch.draw(bgTexture, 0 ,0);
-        spriteBatch.end();
+
 
         spriteBatch.begin();
 
