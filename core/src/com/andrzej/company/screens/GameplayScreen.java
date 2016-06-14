@@ -1,6 +1,7 @@
 package com.andrzej.company.screens;
 
 import com.andrzej.company.TutorialClickerClass;
+import com.andrzej.company.entities.FlyingObject;
 import com.andrzej.company.entities.Player;
 import com.andrzej.company.ui.IClickCallback;
 import com.andrzej.company.ui.PlayerButton;
@@ -15,6 +16,7 @@ public class GameplayScreen extends AbstractScreen {
     private PlayerButton playerButton;
     private ResetScoreButton resetScoreButton;
     private ScoreLabel scoreLabel;
+    private FlyingObject flyingObject1;
     public GameplayScreen(TutorialClickerClass game) {
         super(game);
     }
@@ -26,6 +28,13 @@ public class GameplayScreen extends AbstractScreen {
         initPlayerButton();
         initScoreLabel();
         initResetScoreButton();
+        initFlyingObjects();
+    }
+
+    private void initFlyingObjects() {
+    flyingObject1 = new FlyingObject(FlyingObject.MONEY);
+        stage.addActor(flyingObject1);
+        flyingObject1.fly();
     }
 
     private void initBg() {
